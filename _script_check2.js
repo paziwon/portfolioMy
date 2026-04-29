@@ -1361,9 +1361,17 @@ function ow(id){
   if(W[id]){bf(W[id].el);return;}
   const area=document.getElementById('desktop');
   const off=Object.keys(W).length*22;
+  const vw=Math.max(320, window.innerWidth || document.documentElement.clientWidth);
+  const vh=Math.max(320, window.innerHeight || document.documentElement.clientHeight);
+  const maxW=Math.max(220, vw - 14);
+  const maxH=Math.max(180, vh - (parseInt(getComputedStyle(document.documentElement).getPropertyValue('--TH')) || 38) - 16);
+  const w=Math.min(d.w, maxW);
+  const h=Math.min(d.h, maxH);
   const el=document.createElement('div');
   el.className='xw foc'; el.dataset.id=id;
-  el.style.cssText=`left:${58+off}px;top:${28+off}px;width:${d.w}px;height:${d.h}px;z-index:${++zT};display:flex;flex-direction:column;`;
+  const left=Math.min(58+off, Math.max(0, vw - w - 8));
+  const top=Math.min(28+off, Math.max(0, vh - h - 48));
+  el.style.cssText=`left:${left}px;top:${top}px;width:${w}px;height:${h}px;z-index:${++zT};display:flex;flex-direction:column;`;
 
   const mh=d.menu?`<div class="xw-menu">${d.menu.map(m=>`<div class="xmi">${m}</div>`).join('')}</div>`:'';
   const th=d.tb?`<div class="xw-tbar"><button class="xtb">◀</button><button class="xtb">▶</button><button class="xtb">⬆</button><button class="xtb">🔍 Search</button><button class="xtb">📁 Folders</button></div>`:'';

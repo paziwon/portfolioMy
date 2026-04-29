@@ -315,6 +315,107 @@ body { font-family:Tahoma,sans-serif; font-size:11px; overflow:hidden; width:100
 .pf-av { width:70px; height:70px; border-radius:4px; background:linear-gradient(135deg,#4CAF50,#2196F3); display:flex; align-items:center; justify-content:center; font-size:38px; border:2px solid #316AC5; flex-shrink:0; box-shadow:2px 2px 6px #0004; }
 .tag { display:inline-block; background:#316AC5; color:white; padding:1px 8px; border-radius:10px; font-size:10px; margin:2px 2px 2px 0; }
 .pf-box { background:#EEF4FF; border:1px solid #316AC5; padding:8px 12px; border-radius:2px; margin-top:10px; font-size:11px; }
+
+/* ── MOBILE / TABLET RESPONSIVE ───────────── */
+@media (max-width: 900px) {
+  :root { --TH: 46px; }
+  body { font-size: 12px; }
+
+  .l-top { height: 62px; padding: 0 12px; }
+  .l-brand .wn, .l-brand .xp { font-size: 22px; }
+
+  .l-body { flex-direction: column; justify-content: center; gap: 10px; padding: 12px 10px; }
+  .l-body::after { display: none; }
+  .l-left { display: none; }
+  .l-right { gap: 10px; }
+  .l-instructions { font-size: 13px; }
+  .user-tile { padding: 10px 18px; }
+  .u-avatar { width: 54px; height: 54px; font-size: 28px; }
+
+  .l-bot {
+    height: auto;
+    min-height: 54px;
+    padding: 8px 10px;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .l-hint { display: none; }
+
+  .d-icons {
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(64px, 1fr));
+    gap: 4px;
+    width: auto;
+    max-width: 100%;
+  }
+  .d-icon { width: auto; min-width: 0; padding: 4px 2px; }
+  .d-icon .di { font-size: 22px; width: 28px; height: 28px; }
+  .d-icon span { font-size: 10px; }
+  .d-rb { right: 8px; bottom: calc(var(--TH) + 6px); }
+
+  .taskbar { padding: 0 4px; gap: 4px; }
+  .start {
+    min-width: 82px;
+    height: 34px;
+    padding: 0 8px 0 5px;
+    font-size: 12px;
+  }
+  .tb-ql { display: none; }
+  .tb-w { min-width: 104px; max-width: 130px; font-size: 10px; }
+  .tb-tray { padding: 0 6px; }
+  .tb-tray .clk { font-size: 10px; }
+
+  #smenu {
+    width: min(96vw, 360px);
+    left: 2vw;
+    right: 2vw;
+    bottom: var(--TH);
+    border-radius: 8px 8px 0 0;
+  }
+  .sm-cols { max-height: 52vh; overflow: auto; }
+  .sm-r { width: 42%; }
+  .sm-row { padding: 7px 8px; font-size: 11px; }
+  .sm-ft { position: sticky; bottom: 0; }
+
+  .xw {
+    width: min(96vw, 680px) !important;
+    height: min(72vh, 560px) !important;
+    min-width: 220px;
+    min-height: 160px;
+    left: 2vw !important;
+    top: 5vh !important;
+  }
+  .xw-tb { height: 32px; }
+  .xw-lbl { font-size: 11px; }
+  .xw-menu { height: 24px; }
+  .xw-tbar { height: 30px; overflow-x: auto; }
+  .xw-body { -webkit-overflow-scrolling: touch; }
+  .rgrip { display: none; }
+
+  .w-paper {
+    width: min(100%, 96vw);
+    min-height: auto;
+    padding: 20px 16px;
+    font-size: 11pt;
+  }
+  .pf { padding: 12px; font-size: 12px; line-height: 1.55; }
+  .pf-top { align-items: flex-start; }
+  .pf-av { width: 56px; height: 56px; font-size: 28px; }
+}
+
+@media (max-width: 560px) {
+  .d-icons { grid-template-columns: repeat(3, minmax(62px, 1fr)); }
+  .turnoff { font-size: 12px; padding: 5px 8px; }
+  .toff-ico { width: 20px; height: 20px; font-size: 11px; }
+  .taskbar { height: var(--TH); }
+  .tb-wins { gap: 3px; }
+  .tb-w { min-width: 86px; max-width: 104px; padding: 0 5px; }
+  .sm-r { display: none; }
+  .sm-l { border-right: none; }
+}
 </style>
 </head>
 <body>
@@ -368,7 +469,6 @@ body { font-family:Tahoma,sans-serif; font-size:11px; overflow:hidden; width:100
   <div class="d-icons" id="d-icons">
     <div class="d-icon" ondblclick="ow('mycomp')"><div class="di">🖥️</div><span>My Computer</span></div>
     <div class="d-icon" ondblclick="ow('portfolio')"><div class="di">💼</div><span>My Portfolio</span></div>
-    <div class="d-icon" ondblclick="ow('instagram')"><div class="di">📸</div><span>Instagram</span></div>
     <div class="d-icon" ondblclick="ow('pacman')"><div class="di">👾</div><span>Pac-Man</span></div>
     <div class="d-icon" ondblclick="ow('snake')"><div class="di">🐍</div><span>Snake</span></div>
     <div class="d-icon" ondblclick="ow('tetris')"><div class="di">🧱</div><span>Tetris</span></div>
@@ -400,7 +500,6 @@ body { font-family:Tahoma,sans-serif; font-size:11px; overflow:hidden; width:100
     <div class="sm-cols">
       <div class="sm-l">
         <div class="sm-row" onclick="ow('portfolio');csm()"><span class="si">💼</span><span>My Portfolio</span></div>
-        <div class="sm-row" onclick="ow('instagram');csm()"><span class="si">📸</span><span>Instagram</span></div>
         <div class="sm-row" onclick="ow('pacman');csm()"><span class="si">👾</span><span>Pac-Man</span></div>
         <div class="sm-row" onclick="ow('snake');csm()"><span class="si">🐍</span><span>Snake</span></div>
         <div class="sm-row" onclick="ow('tetris');csm()"><span class="si">🧱</span><span>Tetris</span></div>
@@ -1808,9 +1907,17 @@ function ow(id){
   if(W[id]){bf(W[id].el);return;}
   const area=document.getElementById('desktop');
   const off=Object.keys(W).length*22;
+  const vw=Math.max(320, window.innerWidth || document.documentElement.clientWidth);
+  const vh=Math.max(320, window.innerHeight || document.documentElement.clientHeight);
+  const maxW=Math.max(220, vw - 14);
+  const maxH=Math.max(180, vh - (parseInt(getComputedStyle(document.documentElement).getPropertyValue('--TH')) || 38) - 16);
+  const w=Math.min(d.w, maxW);
+  const h=Math.min(d.h, maxH);
   const el=document.createElement('div');
   el.className='xw foc'; el.dataset.id=id;
-  el.style.cssText=`left:${58+off}px;top:${28+off}px;width:${d.w}px;height:${d.h}px;z-index:${++zT};display:flex;flex-direction:column;`;
+  const left=Math.min(58+off, Math.max(0, vw - w - 8));
+  const top=Math.min(28+off, Math.max(0, vh - h - 48));
+  el.style.cssText=`left:${left}px;top:${top}px;width:${w}px;height:${h}px;z-index:${++zT};display:flex;flex-direction:column;`;
 
   const mh=d.menu?`<div class="xw-menu">${d.menu.map(m=>`<div class="xmi">${m}</div>`).join('')}</div>`:'';
   const th=d.tb?`<div class="xw-tbar"><button class="xtb">◀</button><button class="xtb">▶</button><button class="xtb">⬆</button><button class="xtb">🔍 Search</button><button class="xtb">📁 Folders</button></div>`:'';
